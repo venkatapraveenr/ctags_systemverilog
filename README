@@ -1,0 +1,79 @@
+If you dont want to follow all this settup headache jump to the easier way given in the end.
+
+Setting up environment
+======================
+
+1. Place ctags_vimvsetup dir in your $HOME with name "vimrc" windows environment or ".vim" in LINUX environment.
+2. Add the following lines in the start of .vimrc file
+
+    call pathogen#runtime_append_all_bundles()
+    call pathogen#helptags()
+    filetype off
+    syntax on
+    filetype plugin indent on
+    
+3. Cut and paste the ".ctags" file in your $HOME directory.
+4. Add the following lines in the end of .vimrc file
+
+    set tags=./tags;
+
+    let g:tagbar_type_verilog_systemverilog = {
+        \ 'ctagstype' : 'verilog_systemverilog',
+        \ 'kinds' : [
+            \ 'i:interfaces',
+            \ 'e:typedefs',
+            \ 'c:classes',
+            \ 't:tasks',
+            \ 'f:functions',
+            \ 'm:modules',
+            \ 'p:programs',
+            \ 'd:defines'
+        \],
+        \ 'sro' : '::'
+    \}
+
+How to use it
+=============
+
+1. Go to the Project home dir. (ex: /home/scratch.venkatap_maxwell/venkatap_PCIe_1/hw/gpu_ip/unit/pcie/3.0/stand_sim/xve3g/pcie330)
+2. Run the following commads in this dir to list all the file that need to parsed for generating tags.
+
+    $> list_vcs_src stand_sim/xve3g/pcie330/xve3gtb.log | sort | uniq > temp.txt
+
+3. Copy change_2_absolute_paths.py into the cur dir and run the below command.
+
+    $> python change_2_absolute_paths.py -i temp.txt -o temp_abs.txt
+    $> rm temp.txt
+    $> cp temp_abs.txt ../../../
+    $> cd ../../../
+
+4. Create new tags using the below command.
+    
+    $> ctags -R --languages=verilog,verilog_systemverilog -L temp_abs.txt 
+    $> rm temp_abs.txt
+
+    The above command will generate the tags needed. A file named "tags" will be created in the current dir.
+    
+3. Enjoy using tags from all directorytories 
+
+
+Usage commands
+==============
+Please visit the following link
+    > http://vim.wikia.com/wiki/Browsing_programs_with_tags
+
+NOTE
+====
+
+I have also included by custom folding script for system verilog files. By default it is disabled as it is still work in progress. If you want to use it, change 
+setlocal foldmethod=manual to setlocal foldmethod=expr.
+
+
+This is lot easier way
+======================
+1. Copy the file "tags" in to you iptree home dir.
+2. Add the follwing line to ypur vimrc
+
+    set tags=./tags;
+
+3. Enjoy using tags from all directorytories 

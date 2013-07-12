@@ -1,0 +1,12 @@
+--langdef=verilog_systemverilog 
+--langmap=verilog_systemverilog:.svh.sv.svi
+--regex-verilog_systemverilog=/^[ \t]*(virtual)?[ \t]*class[ \t]+([a-zA-Z_0-9]+)/\2/c,class/ 
+--regex-verilog_systemverilog=/^[ \t]*(virtual)?[ \t]*task[ \t]+.*[ \t]+([a-zA-Z_0-9]+)[ \t]*[(;]/\2/t,task/ 
+--regex-verilog_systemverilog=/^[ \t]*(virtual)?[ \t]*function[ \t]+.*[ \t]+([a-zA-Z_0-9]+)[ \t]*[(;]/\2/f,function/ 
+--regex-verilog_systemverilog=/^[ \t]*module[ \t]+([a-zA-Z_0-9]+)/\1/m,module/ 
+--regex-verilog_systemverilog=/^[ \t]*program[ \t]+([a-zA-Z_0-9]+)/\1/p,program/ 
+--regex-verilog_systemverilog=/^[ \t]*interface[ \t]+([a-zA-Z_0-9]+)/\1/i,interface/ 
+--regex-verilog_systemverilog=/^[ \t]*typedef[ \t]+.*[ \t]+([a-zA-Z_0-9]+)[ \t]*;/\1/e,typedef/ 
+--regex-verilog_systemverilog=/^[ \t]*[`#]define[ \t]+([a-zA-Z_0-9]+)[ \t]*.*$/\1/d,defines/ 
+--verilog-kinds=+ctfmpie
+
