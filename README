@@ -2,6 +2,10 @@ If you dont want to follow all this settup headache jump to the easier way given
 
 Setting up environment
 ======================
+pull the files for git using 
+
+$> git clone https://github.com/venkatapraveenr/ctags_systemverilog.git
+
 
 1. Place ctags_vimvsetup dir in your $HOME with name "vimrc" windows environment or ".vim" in LINUX environment.
 2. Add the following lines in the start of .vimrc file
@@ -71,6 +75,10 @@ setlocal foldmethod=manual to setlocal foldmethod=expr.
 
 This is lot easier way
 ======================
+pull the files for git using 
+
+$> git clone https://github.com/venkatapraveenr/ctags_systemverilog.git
+
 1. Copy the file "tags" in to you iptree home dir.
 2. Add the follwing line to ypur vimrc
 
