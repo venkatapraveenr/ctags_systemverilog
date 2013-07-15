@@ -1,4 +1,4 @@
-If you dont want to follow all this settup headache jump to the easier way given in the end.
+If you dont want to follow all this setup headache, jump to the easier way given in the end.
 
 Setting up environment
 ======================
@@ -72,6 +72,9 @@ NOTE
 I have also included by custom folding script for system verilog files. By default it is disabled as it is still work in progress. If you want to use it, change 
 setlocal foldmethod=manual to setlocal foldmethod=expr.
 
+
+**********************************************************************************
+**********************************************************************************
 
 This is lot easier way
 ======================
